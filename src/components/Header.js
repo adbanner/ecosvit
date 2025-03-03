@@ -1,12 +1,22 @@
+"use client"
 import Image from "next/image";
 
 const Header = () => {
+    function openEditMenu() {
+        const menu = document.getElementById("editMenu")
+        menu.classList.remove('translate-x-full');
+    
+      }
+      function closeEditMenu() {
+        const menu = document.getElementById("editMenu")
+        menu.classList.add('translate-x-full');
+      }
     return (
         <>
             <div className="w-full ">
                 {/* Mobile */}
                 <div className="w-full m-auto  py-4 grid grid-cols-3 px-4 sm:w-xl lg:hidden">
-                    <div>
+                    <div onClick={()=>openEditMenu()} className="cursor-pointer">
                         <Image src="/icons/menu.svg" width={24} height={20} alt="" className="" />
                     </div>
                     <div>
