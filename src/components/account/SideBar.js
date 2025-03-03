@@ -1,25 +1,30 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const menu = [
     {
         slag: "dashboard",
         name: "Дашборд",
-        icon: "/icons/dashboard.svg"
+        icon: "/icons/dashboard.svg",
+        href: "/account"
     },
     {
         slag: "profile",
         name: "Профіль",
-        icon: "/icons/user.svg"
+        icon: "/icons/user.svg",
+        href: "/account/profile"
     },
     {
         slag: "payment",
         name: "Поповнення рахунку",
-        icon: "/icons/wallet.svg"
+        icon: "/icons/wallet.svg",
+        href: "/account/payment"
     },
     {
         slag: "logout",
         name: "Вихід",
-        icon: "/icons/log-out.svg"
+        icon: "/icons/log-out.svg",
+        href: "/account"
     },
 ]
 
@@ -37,20 +42,22 @@ const SideBar = () => {
                     </div>
                 </div>
                 <div className="hidden xl:block text-center bg-[url(/images/sidenav_bg.svg)] bg-cover py-5">
-                        <Image src="/icons/profile.svg" width={40} height={40} alt="" className="m-auto " />
-                        <div className="font-bold pt-2">Тібеж Денис</div>
-                        <div className="text-sm">dn.tibezh@gmail.com</div>
-                        <div className="text-sm pt-2">№ договору</div>
-                        <div className="">06062101</div>
+                    <Image src="/icons/profile.svg" width={40} height={40} alt="" className="m-auto " />
+                    <div className="font-bold pt-2">Тібеж Денис</div>
+                    <div className="text-sm">dn.tibezh@gmail.com</div>
+                    <div className="text-sm pt-2">№ договору</div>
+                    <div className="">06062101</div>
 
                 </div>
 
                 {
                     menu.map(obj => (
-                        <div key={obj.slag} className="h-14 border-t border-t-slate-50 flex items-center">
-                            <Image src={obj.icon} width={20} height={20} alt="" className=" xl:m-5 m-auto opacity-40" />
-                            <p className="text-sm hidden xl:block">{obj.name}</p>
-                        </div>
+                        <Link key={obj.slag} href={obj.href}>
+                            <div  className="h-14 border-t border-t-slate-50 flex items-center">
+                                <Image src={obj.icon} width={20} height={20} alt="" className=" xl:m-5 m-auto opacity-40" />
+                                <p className="text-sm hidden xl:block">{obj.name}</p>
+                            </div>
+                        </Link>
 
                     ))
                 }
