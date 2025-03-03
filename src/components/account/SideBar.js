@@ -1,5 +1,7 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname  } from "next/navigation";
 
 const menu = [
     {
@@ -24,11 +26,12 @@ const menu = [
         slag: "logout",
         name: "Вихід",
         icon: "/icons/log-out.svg",
-        href: "/account"
+        href: "/"
     },
 ]
 
 const SideBar = () => {
+    const pathname = usePathname()
     return (
         <div className="hidden lg:block bg-white w-14 min-w-14 pb-5 rounded-xl shadow-md xl:w-xs">
             <div className="flex flex-col">
@@ -53,7 +56,7 @@ const SideBar = () => {
                 {
                     menu.map(obj => (
                         <Link key={obj.slag} href={obj.href}>
-                            <div  className="h-14 border-t border-t-slate-50 flex items-center">
+                            <div  className={`h-14 border-t border-t-slate-50 flex items-center ${pathname==obj.href ? "bg-sky-50": false}`}>
                                 <Image src={obj.icon} width={20} height={20} alt="" className=" xl:m-5 m-auto opacity-40" />
                                 <p className="text-sm hidden xl:block">{obj.name}</p>
                             </div>

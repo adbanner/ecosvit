@@ -61,7 +61,7 @@ const page = () => {
             {/* menu */}
             <div className="space-y-4 w-full">
                 <div className="border-b border-b-slate-200 flex uppercase">
-                    <Link href="/account">
+                    <Link href="/account/payment">
                         <div className="text-sm font-normal px-4 py-3 "> ОСОБИСТИЙ РАХУНОК</div>
                     </Link>
 
